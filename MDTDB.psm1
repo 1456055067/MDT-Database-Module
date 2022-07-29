@@ -26,7 +26,7 @@ function Clear-MDTArray {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [Int32]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [string]
@@ -52,7 +52,7 @@ function Get-MDTArray {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [Int32]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [string]
@@ -81,7 +81,7 @@ function Set-MDTArray {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [Int32]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [string]
@@ -187,7 +187,7 @@ function New-MDTComputer {
         [string]
         $description,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [string[]]
         $settings
     )
 
@@ -220,8 +220,8 @@ function Get-MDTComputer {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [string]
-        $id = "",
+        [uInt64]
+        $id,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [string]
         $assetTag = "",
@@ -289,10 +289,10 @@ function Set-MDTComputer {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
-        [string]
+        [string[]]
         $settings
     )
     
@@ -327,7 +327,7 @@ function Remove-MDTComputer {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -350,7 +350,7 @@ function Set-MDTComputerIdentity {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [Hashtable]
@@ -382,13 +382,13 @@ function Set-MDTComputerIdentity {
     }
 }
 
-
 function Get-MDTComputerApplication {
 
     [CmdletBinding()]
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [uInt64]
         $id
     )
 
@@ -403,7 +403,7 @@ function Clear-MDTComputerApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -418,7 +418,7 @@ function Set-MDTComputerApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -436,7 +436,7 @@ function Get-MDTComputerPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -451,7 +451,7 @@ function Clear-MDTComputerPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -466,7 +466,7 @@ function Set-MDTComputerPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
         [string[]]
@@ -484,7 +484,7 @@ function Get-MDTComputerRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -499,7 +499,7 @@ function Clear-MDTComputerRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -514,7 +514,7 @@ function Set-MDTComputerRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -532,7 +532,7 @@ function Get-MDTComputerAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -547,7 +547,7 @@ function Clear-MDTComputerAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -562,7 +562,7 @@ function Set-MDTComputerAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -620,8 +620,8 @@ function Get-MDTRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [string]
-        $id = "",
+        [uInt64]
+        $id,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [string]
         $name = ""
@@ -653,7 +653,7 @@ function Set-MDTRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [string[]]
@@ -691,7 +691,7 @@ function Remove-MDTRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -714,7 +714,7 @@ function Get-MDTRoleApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -729,7 +729,7 @@ function Clear-MDTRoleApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -744,7 +744,7 @@ function Set-MDTRoleApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -762,7 +762,7 @@ function Get-MDTRolePackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -777,7 +777,7 @@ function Clear-MDTRolePackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -792,7 +792,7 @@ function Set-MDTRolePackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
         [string[]]
@@ -810,7 +810,7 @@ function Get-MDTRoleRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -825,7 +825,7 @@ function Clear-MDTRoleRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -840,7 +840,7 @@ function Set-MDTRoleRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -858,7 +858,7 @@ function Get-MDTRoleAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -873,7 +873,7 @@ function Clear-MDTRoleAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id
     )
 
@@ -888,7 +888,7 @@ function Set-MDTRoleAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [string]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
