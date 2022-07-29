@@ -78,12 +78,22 @@ function Get-MDTArray {
 
 function Set-MDTArray {
 
-    PARAM
-    (
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true)]
+        [Int32]
         $id,
+        [Parameter(Mandatory = $true)]
+        [string]
         $type,
+        [Parameter(Mandatory = $true)]
+        [string]
         $table,
+        [Parameter(Mandatory = $true)]
+        [string]
         $column,
+        [Parameter(Mandatory = $true)]
+        [string[]]
         $array
     )
 
@@ -113,12 +123,16 @@ function Set-MDTArray {
 function Connect-MDTDatabase {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(Position = 1)] $drivePath = "",
-        [Parameter()] $sqlServer,
-        [Parameter()] $instance = "",
-        [Parameter()] $database
+        [Parameter(Position = 1)] 
+        $drivePath = "",
+        [Parameter()] 
+        $sqlServer,
+        [Parameter()] 
+        $instance = "",
+        [Parameter()] 
+        $database
     )
 
     # If $mdtDatabase exists from a previous execution, clear it
