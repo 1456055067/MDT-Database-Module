@@ -116,9 +116,7 @@ function Set-MDTArray {
     Write-Host "Added records to $table for Type = $type and ID = $id."
 }
 
-# ---------------------------------------------------------------------
 # Connection function
-# ---------------------------------------------------------------------
 
 function Connect-MDTDatabase {
 
@@ -167,21 +165,30 @@ function Connect-MDTDatabase {
     $global:mdtSQLConnection.Open()
 }
 
-# ---------------------------------------------------------------------
-# Computer functions
-# ---------------------------------------------------------------------
+#region Computer functions
 
 function New-MDTComputer {
 
     [CmdletBinding()]
-    PARAM
-    (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $assetTag,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $macAddress,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $serialNumber,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $uuid,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $description,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $settings
+    param (
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $assetTag,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $macAddress,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $serialNumber,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $uuid,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $description,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $settings
     )
 
     Process {
@@ -210,14 +217,26 @@ function New-MDTComputer {
 function Get-MDTComputer {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $id = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $assetTag = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $macAddress = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $serialNumber = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $uuid = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $description = ""
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $id = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $assetTag = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $macAddress = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $serialNumber = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $uuid = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $description = ""
     )
     
     Process {
@@ -267,10 +286,14 @@ function Get-MDTComputer {
 function Set-MDTComputer {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(Mandatory = $true)]
+        [string]
+        $settings
     )
     
     Process {
@@ -301,9 +324,11 @@ function Set-MDTComputer {
 function Remove-MDTComputer {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -320,11 +345,16 @@ function Remove-MDTComputer {
 }
 
 function Set-MDTComputerIdentity {
+
     [CmdletBinding()]
     param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(Mandatory = $true)] [Hashtable]$settings
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(Mandatory = $true)]
+        [Hashtable]
+        $settings
     )
     
     Process {
@@ -356,9 +386,10 @@ function Set-MDTComputerIdentity {
 function Get-MDTComputerApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        $id
     )
 
     Process {
@@ -369,9 +400,11 @@ function Get-MDTComputerApplication {
 function Clear-MDTComputerApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -382,10 +415,14 @@ function Clear-MDTComputerApplication {
 function Set-MDTComputerApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $applications
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $applications
     )
 
     Process {
@@ -396,9 +433,11 @@ function Set-MDTComputerApplication {
 function Get-MDTComputerPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -409,9 +448,11 @@ function Get-MDTComputerPackage {
 function Clear-MDTComputerPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -422,10 +463,14 @@ function Clear-MDTComputerPackage {
 function Set-MDTComputerPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $packages
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
+        [string[]]
+        $packages
     )
 
     Process {
@@ -436,9 +481,11 @@ function Set-MDTComputerPackage {
 function Get-MDTComputerRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -449,9 +496,11 @@ function Get-MDTComputerRole {
 function Clear-MDTComputerRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -462,10 +511,14 @@ function Clear-MDTComputerRole {
 function Set-MDTComputerRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $roles
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $roles
     )
 
     Process {
@@ -476,9 +529,11 @@ function Set-MDTComputerRole {
 function Get-MDTComputerAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -489,9 +544,11 @@ function Get-MDTComputerAdministrator {
 function Clear-MDTComputerAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -502,10 +559,14 @@ function Clear-MDTComputerAdministrator {
 function Set-MDTComputerAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $administrators
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $administrators
     )
 
     Process {
@@ -513,17 +574,21 @@ function Set-MDTComputerAdministrator {
     }
 }
 
-# ---------------------------------------------------------------------
-# Role functions
-# ---------------------------------------------------------------------
+#endregion
 
+
+#region Role functions
 function New-MDTRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $name,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $name,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $settings
     )
 
     Process {
@@ -552,10 +617,14 @@ function New-MDTRole {
 function Get-MDTRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $id = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $name = ""
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $id = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $name = ""
     )
     
     Process {
@@ -581,10 +650,14 @@ function Get-MDTRole {
 function Set-MDTRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(Mandatory = $true)]
+        [string[]]
+        $settings
     )
     
     Process {
@@ -615,9 +688,11 @@ function Set-MDTRole {
 function Remove-MDTRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -636,9 +711,11 @@ function Remove-MDTRole {
 function Get-MDTRoleApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -649,9 +726,11 @@ function Get-MDTRoleApplication {
 function Clear-MDTRoleApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -662,10 +741,14 @@ function Clear-MDTRoleApplication {
 function Set-MDTRoleApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $applications
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $applications
     )
 
     Process {
@@ -676,9 +759,11 @@ function Set-MDTRoleApplication {
 function Get-MDTRolePackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -689,9 +774,11 @@ function Get-MDTRolePackage {
 function Clear-MDTRolePackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -702,10 +789,14 @@ function Clear-MDTRolePackage {
 function Set-MDTRolePackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $packages
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] 
+        [string[]]
+        $packages
     )
 
     Process {
@@ -716,9 +807,11 @@ function Set-MDTRolePackage {
 function Get-MDTRoleRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -729,9 +822,11 @@ function Get-MDTRoleRole {
 function Clear-MDTRoleRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -742,10 +837,14 @@ function Clear-MDTRoleRole {
 function Set-MDTRoleRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $roles
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $roles
     )
 
     Process {
@@ -756,9 +855,11 @@ function Set-MDTRoleRole {
 function Get-MDTRoleAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -769,9 +870,11 @@ function Get-MDTRoleAdministrator {
 function Clear-MDTRoleAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id
     )
 
     Process {
@@ -782,10 +885,14 @@ function Clear-MDTRoleAdministrator {
 function Set-MDTRoleAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $administrators
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $administrators
     )
 
     Process {
@@ -793,18 +900,23 @@ function Set-MDTRoleAdministrator {
     }
 }
 
-# ---------------------------------------------------------------------
-# Location functions
-# ---------------------------------------------------------------------
+#endregion
 
+#region Location functions
 function New-MDTLocation {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $name,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $gateways,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true)] 
+        [string]
+        $name,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string[]]
+        $gateways,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $settings
     )
 
     Process {
@@ -836,11 +948,17 @@ function New-MDTLocation {
 function Get-MDTLocation {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $id = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $name = "",
-        [Parameter()][switch] $detail = $false
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $name = "",
+        [Parameter()]
+        [switch]
+        $detail = $false
     )
     
     Process {
@@ -881,11 +999,17 @@ function Get-MDTLocation {
 function Set-MDTLocation {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $gateways = $null,
-        [Parameter()] $settings = $null
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string[]]
+        $gateways = $null,
+        [Parameter()]
+        [string[]]
+        $settings = $null
     )
     
     Process {
@@ -941,9 +1065,11 @@ function Set-MDTLocation {
 function Remove-MDTLocation {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -962,9 +1088,11 @@ function Remove-MDTLocation {
 function Get-MDTLocationApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -975,9 +1103,11 @@ function Get-MDTLocationApplication {
 function Clear-MDTLocationApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -988,10 +1118,14 @@ function Clear-MDTLocationApplication {
 function Set-MDTLocationApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $applications
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $applications
     )
 
     Process {
@@ -1002,9 +1136,11 @@ function Set-MDTLocationApplication {
 function Get-MDTLocationPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1015,9 +1151,11 @@ function Get-MDTLocationPackage {
 function Clear-MDTLocationPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1028,10 +1166,14 @@ function Clear-MDTLocationPackage {
 function Set-MDTLocationPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $packages
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $packages
     )
 
     Process {
@@ -1042,9 +1184,11 @@ function Set-MDTLocationPackage {
 function Get-MDTLocationRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1055,9 +1199,11 @@ function Get-MDTLocationRole {
 function Clear-MDTLocationRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1068,10 +1214,14 @@ function Clear-MDTLocationRole {
 function Set-MDTLocationRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $roles
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $roles
     )
 
     Process {
@@ -1082,9 +1232,11 @@ function Set-MDTLocationRole {
 function Get-MDTLocationAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1095,9 +1247,11 @@ function Get-MDTLocationAdministrator {
 function Clear-MDTLocationAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1108,29 +1262,38 @@ function Clear-MDTLocationAdministrator {
 function Set-MDTLocationAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $administrators
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $administrators
     )
 
     Process {
         Set-MDTArray $id 'L' 'Settings_Administrators' 'Administrators' $administrators
     }
 }
+#endregion
 
-# ---------------------------------------------------------------------
-# Make Model functions
-# ---------------------------------------------------------------------
+#region Make Model functions
 
 function New-MDTMakeModel {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $make,
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $model,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $make,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $model,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $settings
     )
 
     Process {
@@ -1159,11 +1322,17 @@ function New-MDTMakeModel {
 function Get-MDTMakeModel {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $id = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $make = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $model = ""
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $make = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $model = ""
     )
     
     Process {
@@ -1195,10 +1364,14 @@ function Get-MDTMakeModel {
 function Set-MDTMakeModel {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(Mandatory = $true)] $settings
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(Mandatory = $true)]
+        [string[]]
+        $settings
     )
     
     Process {
@@ -1229,9 +1402,11 @@ function Set-MDTMakeModel {
 function Remove-MDTMakeModel {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1250,9 +1425,11 @@ function Remove-MDTMakeModel {
 function Get-MDTMakeModelApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1263,9 +1440,11 @@ function Get-MDTMakeModelApplication {
 function Clear-MDTMakeModelApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1276,10 +1455,14 @@ function Clear-MDTMakeModelApplication {
 function Set-MDTMakeModelApplication {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $applications
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $applications
     )
 
     Process {
@@ -1290,9 +1473,11 @@ function Set-MDTMakeModelApplication {
 function Get-MDTMakeModelPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1303,9 +1488,11 @@ function Get-MDTMakeModelPackage {
 function Clear-MDTMakeModelPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1316,10 +1503,14 @@ function Clear-MDTMakeModelPackage {
 function Set-MDTMakeModelPackage {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $packages
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $packages
     )
 
     Process {
@@ -1330,9 +1521,11 @@ function Set-MDTMakeModelPackage {
 function Get-MDTMakeModelRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1343,9 +1536,11 @@ function Get-MDTMakeModelRole {
 function Clear-MDTMakeModelRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1356,10 +1551,14 @@ function Clear-MDTMakeModelRole {
 function Set-MDTMakeModelRole {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $roles
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $roles
     )
 
     Process {
@@ -1370,9 +1569,11 @@ function Set-MDTMakeModelRole {
 function Get-MDTMakeModelAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1383,9 +1584,11 @@ function Get-MDTMakeModelAdministrator {
 function Clear-MDTMakeModelAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id
     )
 
     Process {
@@ -1396,10 +1599,14 @@ function Clear-MDTMakeModelAdministrator {
 function Set-MDTMakeModelAdministrator {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $id,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $administrators
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Int64]
+        $id,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string[]]
+        $administrators
     )
 
     Process {
@@ -1407,18 +1614,21 @@ function Set-MDTMakeModelAdministrator {
     }
 }
 
+#endregion
 
-# ---------------------------------------------------------------------
-# Package mapping functions
-# ---------------------------------------------------------------------
+#region Package mapping functions
 
 function New-MDTPackageMapping {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $ARPName,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $package
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $ARPName,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $package
     )
 
     Process {
@@ -1437,10 +1647,14 @@ function New-MDTPackageMapping {
 function Get-MDTPackageMapping {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $ARPName = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $package = ""
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $ARPName = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $package = ""
     )
     
     Process {
@@ -1469,10 +1683,14 @@ function Get-MDTPackageMapping {
 function Set-MDTPackageMapping {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $ARPName,
-        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)] $package = $null
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $ARPName,
+        [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [string]
+        $package = $null
     )
     
     Process {
@@ -1491,10 +1709,14 @@ function Set-MDTPackageMapping {
 function Remove-MDTPackageMapping {
 
     [CmdletBinding()]
-    PARAM
+    param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $ARPName = "",
-        [Parameter(ValueFromPipelineByPropertyName = $true)] $package = ""
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $ARPName = "",
+        [Parameter(ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $package = ""
     )
     
     Process {
@@ -1520,3 +1742,5 @@ function Remove-MDTPackageMapping {
         Write-Host "Removed package mapping records matching the specified parameters."    
     }
 }
+
+#endregion
