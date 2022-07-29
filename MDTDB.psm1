@@ -951,7 +951,7 @@ function Get-MDTLocation {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [string]
@@ -1002,7 +1002,7 @@ function Set-MDTLocation {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [string[]]
@@ -1068,7 +1068,7 @@ function Remove-MDTLocation {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1091,7 +1091,7 @@ function Get-MDTLocationApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1106,7 +1106,7 @@ function Clear-MDTLocationApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1121,7 +1121,7 @@ function Set-MDTLocationApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1139,7 +1139,7 @@ function Get-MDTLocationPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1154,7 +1154,7 @@ function Clear-MDTLocationPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1169,7 +1169,7 @@ function Set-MDTLocationPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1187,7 +1187,7 @@ function Get-MDTLocationRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1202,7 +1202,7 @@ function Clear-MDTLocationRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1217,7 +1217,7 @@ function Set-MDTLocationRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1235,7 +1235,7 @@ function Get-MDTLocationAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1250,7 +1250,7 @@ function Clear-MDTLocationAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1265,7 +1265,7 @@ function Set-MDTLocationAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1325,7 +1325,7 @@ function Get-MDTMakeModel {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [string]
@@ -1367,7 +1367,7 @@ function Set-MDTMakeModel {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(Mandatory = $true)]
         [string[]]
@@ -1405,7 +1405,7 @@ function Remove-MDTMakeModel {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1428,7 +1428,7 @@ function Get-MDTMakeModelApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1443,7 +1443,7 @@ function Clear-MDTMakeModelApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1458,7 +1458,7 @@ function Set-MDTMakeModelApplication {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1476,7 +1476,7 @@ function Get-MDTMakeModelPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1491,7 +1491,7 @@ function Clear-MDTMakeModelPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1506,7 +1506,7 @@ function Set-MDTMakeModelPackage {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1524,7 +1524,7 @@ function Get-MDTMakeModelRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1539,7 +1539,7 @@ function Clear-MDTMakeModelRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1554,7 +1554,7 @@ function Set-MDTMakeModelRole {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
@@ -1572,7 +1572,7 @@ function Get-MDTMakeModelAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1587,7 +1587,7 @@ function Clear-MDTMakeModelAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id
     )
 
@@ -1602,7 +1602,7 @@ function Set-MDTMakeModelAdministrator {
     param
     (
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Int64]
+        [uInt64]
         $id,
         [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [string[]]
