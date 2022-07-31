@@ -7,7 +7,7 @@
 # Written by Vaughn Miller
 
 #Import the module that allows us to interact with MDT
-Import-Module -name .\MDTDB.psm1
+Import-Module -name .\MDT-Database.psm1
 
 #Open a connection to our database
 Connect-MDTDatabase -sqlServer deploy.example.com -instance ADSQL -database msdeploy
